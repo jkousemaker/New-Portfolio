@@ -1,0 +1,120 @@
+.menu {
+    height: 39px;
+    position: absolute;
+    right: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 100%;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn-burger {
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px gray;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn-burger::before,
+.menu-btn-burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px gray;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn-burger::before {
+    transform: translateY(-16px);
+}
+
+.menu-btn-burger::after {
+    transform: translateY(16px);
+}
+
+.menu-btn.open .menu-btn-burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn-burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn-burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+@media only screen and (max-width: 609px) {
+    .j-buttons {
+        opacity: 0!important;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .menu {
+        opacity: 1!important;
+        visibility: visible;
+    }
+}
+
+.b-dropdown {
+    display: flex;
+    height: 158px;
+    width: 99px;
+    position: absolute;
+    right: 40px;
+    top: 58px;
+    border: 1px solid;
+    border-top: 0px;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: translatex(30px) translatey(-73px) scale(0.1);
+}
+
+.b-dropdown.open {
+    transform: translatex(0px) translatey(0px) scale(1);
+}
+
+@media only screen and (min-width: 610px) {
+    .b-dropdown {
+        visibility: hidden!important;
+        opacity: 0!important;
+    }
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    /* opacity: 0!important; */
+    /* visibility: hidden!important; */
+}
+
+.b-dropdown > a {
+    text-decoration: underline;
+}

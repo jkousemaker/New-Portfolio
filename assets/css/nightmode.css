@@ -1,0 +1,19 @@
+body.themer {
+    background-color: grey;
+}
+
+h1.themer, h2.themer, h3.themer, h4.themer, p.themer, a.themer{
+    color:white;
+}
+
+.card.themer {
+    border-color:white;
+}
+
+.jumbotron.themer {
+    background-color: rgb(31, 31, 31);
+}
+
+.b-dropdown.themer {
+    background-color: #404040;
+}
