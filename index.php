@@ -3,47 +3,48 @@
     include_once 'standard/jumbotron.php';
 ?>
 
+<div class="open e-form">
+        <form method="post">
+            <div class="exit">
+                <img class="exit-button" src="assets/images/button.png">
+            </div>
+            <input placeholder="First Name" type="text" name="fname"> <br>
+            <input placeholder="Last Name" type="text" name="lname"> <br>
+            <input placeholder="Email" type="text" name="email"> <br>
+            <textarea placeholder="Message" name="message"></textarea> <br>
+            <input type="submit" name="submit">
+        </form>
+    </div>
+    <?php
+        global $pdo;
+        if(isset($_POST['submit'])){
+            if (!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['message'])) {
+                $fname = $_POST['fname'];
+                $lname = $_POST['lname'];
+                $email = $_POST['email'];
+                $message = $_POST['message'];
+                
+                $sql = $pdo->prepare("INSERT INTO mails (fname, lname, email, message) VALUES ('$fname', '$lname', '$email', '$message')");
+                $sql->execute();
+            } else {
+                echo "<script>alert('Fill in all fields.');</script>";
+            }
+        }
+    ?>
+
 <div class="wrapper">
         <section class="introduction">
-            <div class="e-form">
-                <form method="post">
-                    <p class="form-exit">x</p>
-                    <p>First Name:</p><br>
-                    <input type="text" name="fname"> <br>
-                    <p>Last Name:</p><br>
-                    <input type="text" name="lname"> <br>
-                    <p>Email:</p><br>
-                    <input type="text" name="email"> <br>
-                    <p>Message:</p>
-                    <textarea name="message"></textarea> <br>
-                    <input type="submit" name="submit">
-                </form>
-            </div>
-            <?php
-                global $pdo;
-                if(isset($_POST['submit'])){
-                    if (!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['message'])) {
-                        $fname = $_POST['fname'];
-                        $lname = $_POST['lname'];
-                        $email = $_POST['email'];
-                        $message = $_POST['message'];
-                        
-                        $sql = $pdo->prepare("INSERT INTO mails (fname, lname, email, message) VALUES ('$fname', '$lname', '$email', '$message')");
-                        $sql->execute();
-                    } else {
-                        echo '<script>alert("Fill in all fields.");</script>';
-                    }
-                }
-            ?>
             <div class="picture-card">
                 <img src="assets/images/selfie.jpg">
             </div>
             <div class="intro-text">
                 <h1>I'm a</h1>
-                <h3>Software Developer</h3>
-                <h3>Back and front end Developer</h3>
-                <h4>Video Editor</h4>
-                <h4>Photoshopper</h4>
+                <ul class="dynamic-txts">
+                    <li><span>Developer</span></li>
+                    <li><span>Designer</span></li>
+                    <li><span>Editor</span></li>
+                    <li><span>Freelancer</span></li>
+                </ul>
             </div>
         </section>
         <section class="skills">
@@ -52,7 +53,7 @@
                 <p>Primary skills</p>
                 <div class="skillz">
                     <div class="skills1">
-                        <p>C++</p>
+                        <p>C#</p>
                         <p>Adobe After Effects</p>
                         <p>JavaScript</p>
                         <p>HTML</p>
@@ -144,27 +145,33 @@
         <section class="contact">
             <h1>Contact me</h1>
             <div class="card">
-                <h2>Socials</h2>
                 <div class="socialss">
-                    <div class="gmail social">
-                        <img src="assets/images/gmail.png">
+                    <div class="snapchat social">
+                        <img src="assets/images/snapchat.png">
                     </div>
                     <div class="instagram social">
                         <img src="assets/images/instagram.png">
                     </div>
-                    <div class="whatsapp-popup">
-                        <p class="w-exit-button">x</p>
-                        <p>+31 6 12059599</p>
+                    <div class="popup">
+                        <div class="exit">
+                            <img class="exit-button" src="assets/images/button.png">
+                        </div>
+                        <p class="info">+31 6 12059599</p>
                         <div class="copy-button">
-                            <p>Copy to clipboard!</p>
+                            <p>Copy to clipboard</p>
                         </div>
                     </div>
                     <div class="whatsapp social">
                         <img src="assets/images/whatsapp.png">
                     </div>
                 </div>
+                <div class="email-card">
+                    <p>Send me an e-mail:</p>
+                    <div class="gmail">Click!</div>
+                </div>
             </div>
         </section>
+    </div>
 <?php
     include_once 'standard/footer.php';
 ?>

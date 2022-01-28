@@ -10,5 +10,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/nightmode.js"></script>
     <script src="assets/js/burger.js"></script>
+    <script src="assets/js/buttons.js"></script>
 </body>
 </html>

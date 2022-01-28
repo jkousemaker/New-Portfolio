@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/slider.css">
     <link rel="stylesheet" href="assets/css/nightmode.css">
     <link rel="stylesheet" href="assets/css/burger.css">
+    <link rel="stylesheet" href="assets/css/typewriter.css">
 </head>
 
 <?php

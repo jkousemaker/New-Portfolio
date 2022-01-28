@@ -34,3 +34,33 @@ body > .footer {
     justify-content: center;
     align-items: center;
 }
+
+.wrapper > p {
+    margin: 20px;
+}
+
+p {
+    margin: 0px;
+}
+
+.options {
+    left: 24px;
+}
+
+form {
+    display: flex;
+    height: 337px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+input {
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+input, textarea, select {
+    margin: 20px;
+}

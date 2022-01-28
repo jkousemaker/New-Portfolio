@@ -1,6 +1,7 @@
 * {
     font-family: 'Roboto Condensed', sans-serif;
     transition: all .5s ease-in-out;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
@@ -8,19 +9,17 @@ html, body {
     width: 100%;
     margin: 0px;
     margin-top: 61px;
-    /* overflow-y: visible; */
-    /* overflow-x: hidden; */
 }
-
-body {/* overflow-x: hidden; */}
 
 section {
     scroll-margin-top: 3rem;
+    margin-top: 40px;
 }
 
 h1 {
-    font-size: 41px;
+    font-size: 49px;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 .jumbotron {
@@ -61,6 +60,7 @@ h1 {
     flex-wrap: wrap;
     opacity: 1;
     visibility: visible;
+    transition: none;
 }
 
 .j-buttons > div {
@@ -75,6 +75,13 @@ h1 {
     display: flex;
     justify-content: center;
     cursor: pointer;
+}
+
+.j-button:hover {
+    letter-spacing: 0.7px;
+    -webkit-text-stroke: 0.5px black;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.08);
 }
 
 .jumbotron > h1, .j-buttons {
@@ -102,7 +109,8 @@ h1 {
 }
 
 .picture-card {
-    width: 291px;
+    width: 100%;
+    max-width: 310px;
     height: 395px;
     overflow: hidden;
     display: flex;
@@ -112,12 +120,6 @@ h1 {
 
 .picture-card > img {
     height: 100%;
-}
-
-.intro-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .skills {
@@ -183,25 +185,11 @@ justify-content: space-evenly;
 
 .p-cards {
     width: 100%;
+    min-height: 50vh;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-}
-
-.p-cards > .card, .cardz {
-    height: 200px;
-    max-width: 330px;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
     align-content: center;
-    border: 1px solid #0000008a;
-    border-radius: 20px;
-    cursor: pointer;
-    margin: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .zuzu {
@@ -231,11 +219,20 @@ justify-content: space-evenly;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    border-bottom: 1px dotted black;
 }
 
 .reason > p {
-    width: 264.17px;
+    width: 100%;
+    max-width: 264.17px;
+}
+
+.reason > p::after {
+    content: '';
+    width: 100%;
+    height: 7px;
+    display: block;
+    border-bottom: 1px dotted black;
+    /* background: black; */
 }
 
 .count {
@@ -265,6 +262,8 @@ justify-content: space-evenly;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     padding: 18px;
+    padding-right: 80px;
+    padding-left: 80px;
 }
 
 .socialss {
@@ -278,10 +277,79 @@ justify-content: space-evenly;
     margin: 20px;
 }
 
+.social:hover {
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 690px) {
+    .social {
+        height: 70px;
+    }
+    .contact > .card {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .social {
+        margin: 5px;
+        height: 50px;
+    }
+    .contact > .card {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    .jumbotron > a > h1 {
+        font-size: 18px!important;
+        margin-left: 5px;
+    }
+}
+
 .social > img {
     width: 100%;
     height: 100%;
     cursor: pointer;
+}
+
+.email-card {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 13px darkgrey;
+    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    justify-content: space-evenly;
+}
+
+.email-card > p {
+    margin: 0;
+}
+
+.gmail {
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 7px!important;
+    padding-left: 7px!important;
+    padding: 2px;
+}
+
+.gmail:hover {
+    box-shadow: 1px 1px 10px rgb(180, 180, 180);
+    transform:scale(1.1);
+    letter-spacing: 2px;
 }
 
 .burger {
@@ -292,13 +360,24 @@ justify-content: space-evenly;
     border: solid 2px black;
     cursor: pointer;
     padding: 10px;
-    margin-bottom: 36px;
-    opacity: 1;
+    margin: 36px;
+    opacity: 0;
+    visibility: hidden;
     transition: all .3s ease-in-out;
 }
 
 .burger.open {
     transform: rotateY(90deg);
+}
+
+@media only screen and (max-width: 392px) {
+    .burger {
+        margin-left: 10px;
+    }
+    .reason {
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 .burger > img {
@@ -307,18 +386,17 @@ justify-content: space-evenly;
 }
 
 .dropdown {
-    height: 113px;
-    width: 99px;
     background: black;
     position: fixed;
-    top: 778px;
     left: 57px;
+    bottom: 39px;
     border-radius: 20px;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    padding: 12px;
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease-in-out;
@@ -329,11 +407,18 @@ justify-content: space-evenly;
     transform: translateY(0px) translateX(0px) scale(1);
 }
 
+.dropdown > p, .dropdown > .switch {
+    margin: 10px;
+}
+
 .exit {
     width: 100%;
     text-align: end;
-    margin-right: 29px;
+}
+
+.exit-button {
     cursor: pointer;
+    height: 20px;
 }
 
 .footer {
@@ -345,6 +430,7 @@ justify-content: space-evenly;
     background-color: #99989859;
     padding-right: 15px;
     padding-left: 15px;
+    margin: 0;
 }
 
 .options {
@@ -380,7 +466,13 @@ justify-content: space-evenly;
     z-index: 10000;
     visibility: hidden;
     opacity: 0;
-    transition: all .5s ease-in-out;
+    bottom: 170px;
+    transition: all 0.7s ease-in-out;
+    max-width: 100%;
+}
+
+.e-form.open {
+    bottom: -469px!important;
 }
 
 .e-form > form {
@@ -397,45 +489,45 @@ justify-content: space-evenly;
     justify-content: center;
 }
 
-.e-form > form > p:nth-child(1) {
-    width: 100%;
-    text-align: end;
-    font-size: xxx-large;
-    margin-top: 0;
-    cursor: pointer;
-}
-
 .e-form > form > p {
     margin: 0;
 }
 
-.whatsapp-popup {
+input, textarea, select {
+    border: none;
+    box-shadow: 1px 1px 10px rgb(204, 204, 204);
+    border-radius: 10px;
+    padding: 11px;
+}
+
+input:focus, textarea:focus, select:focus {
+    box-shadow: none;
+    border: solid 1px black;
+}
+
+textarea {
+    transition: none!important;
+    max-height: 200px;
+    min-height: 60px;
+    max-width: 100vh;
+    min-width: 150px;
+}
+
+.popup {
     position: absolute;
     background-color: white;
     box-shadow: 5px 5px 15px 5px #0000004d;
-    padding: 31px;
+    padding: 19px;
     border-radius: 20px;
     text-align: center;
-    /* top: 1px; */
+    min-width: 152px;
     visibility: hidden;
     opacity: 0;
     transition: all .5s ease-in-out;
-}
-
-.whatsapp-popup > p:nth-child(2) {
-    margin-top: 0;
-}
-
-.whatsapp-popup > p:nth-child(1) {
-    margin: 0;
-    width: 100%;
-    text-align: end;
-    cursor: pointer;
-    font-size: x-large;
+    z-index: 10000;
 }
 
 .copy-button {
-    border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
@@ -443,9 +535,8 @@ justify-content: space-evenly;
 }
 
 .copy-button:hover {
-    background-color: greenyellow;
-    color: white;
-    transform: scale(1.2);
+    box-shadow: 1px 1px 10px rgb(180, 180, 180);
+    transform:scale(1.1);
 }
 
 .copy-button > p {
@@ -470,6 +561,7 @@ justify-content: space-evenly;
     margin-top: 20px;
     margin-bottom: 20px;
     transition: all .5s ease-in-out;
+    background: white;
 }
 
 .icefield:hover, .escape:hover, .zuzu:hover {
@@ -483,3 +575,4 @@ justify-content: space-evenly;
 .icefield > img {
     width: 100%;
 }
+

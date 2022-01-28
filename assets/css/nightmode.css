@@ -17,3 +17,25 @@ h1.themer, h2.themer, h3.themer, h4.themer, p.themer, a.themer{
 .b-dropdown.themer {
     background-color: #404040;
 }
+
+.footer.themer {
+    background-color: black;
+}
+
+.p-cards > div.themer {
+    background-color: rgb(197, 197, 197);
+}
+
+.dynamic-txts.themer > li::after{
+    background-color: grey!important;
+    border-left: 2px solid white!important;
+}
+
+.dynamic-txts.themer > li {
+    -webkit-text-stroke: 1px white;
+}
+
+.j-button:hover.themer {
+    -webkit-text-stroke: 0.5px white;
+    -webkit-text-fill-color: transparent;
+}

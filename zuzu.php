@@ -23,18 +23,12 @@
                     }
                     ?>
                 </select> <br>
-                Hoeveelheid:
-                <input type="number" name="amount" value="1"> <br>
-                Voornaam:<br>
-                <input type="text" name="fname"> <br>
-                Achternaam:<br>
-                <input type="text" name="lname"> <br>
-                Adres:<br>
-                <input type="text" name="address"> <br>
-                Stad:<br>
-                <input type="text" name="city"> <br>
-                Postcode:<br>
-                <input type="text" name="zipcode"> <br>
+                <input placeholder="Hoeveelheid" type="number" name="amount" value="1">
+                <input placeholder="Voornaam" type="text" name="fname">
+                <input placeholder="Achternaam" type="text" name="lname">
+                <input placeholder="Adres"type="text" name="address">
+                <input placeholder="Stad" type="text" name="city">
+                <input placeholder="Postcode"type="text" name="zipcode"> <br>
                 <input type="submit" name="submit">
             </form>
         </div>
@@ -43,6 +37,16 @@
 <?php
     global $pdo;
     if(isset($_POST['submit'])){
+            $sushi = $_POST['sushi_id'];
+            $sql = $pdo->prepare("SELECT * FROM sushi");
+            $sql->execute();
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $data) {
+                if ($data['name'] == $sushi) {
+                    $tempAmount = $data['amount'];
+                }
+            }
         if ($_POST['amount'] != 0 && !empty($_POST['amount']) && !empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['address']) && !empty($_POST['city']) && !empty($_POST['zipcode'])) {
             $amount = $_POST['amount'];
             $sushi = $_POST['sushi_id'];
@@ -52,70 +56,82 @@
             $city = $_POST['city'];
             $zipcode = $_POST['zipcode'];
 
-            $sql = $pdo->prepare("INSERT INTO customer (fname, lname, address, city, zipcode) VALUES ('$fname', '$lname', '$address', '$city', '$zipcode')");
-            $sql->execute();
+            if($amount <= $tempAmount ) {
+        
+                $sql = $pdo->prepare("INSERT INTO customer (fname, lname, address, city, zipcode) VALUES ('$fname', '$lname', '$address', '$city', '$zipcode')");
+                $sql->execute();
 
-            $sql = $pdo->prepare("SELECT * FROM customer");
-            $sql->execute();
-            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+                $sql = $pdo->prepare("SELECT * FROM customer");
+                $sql->execute();
+                $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($result as $data) {
-                if ($data['address'] == $address) {
-                    $fn = $data['fname'];
-                    $ln = $data['lname'];
-                    $ad = $data['address'];
-                    $ci = $data['city'];
-                    $zi = $data['zipcode'];
-                }
-            }
-
-            $sql = $pdo->prepare("SELECT * FROM sushi");
-            $sql->execute();
-            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($result as $data) {
-                if ($data['name'] == $sushi) {
-                    $sn = $data['name'];
-                    $sp = $data['price'];
-                    $id = $data['id'];
-                    $sa = $amount;
-                    if ($sa > 1) {
-                        $stp = $data['price'] * $sa;
-                    } else {
-                        $stp = $sp;
+                foreach ($result as $data) {
+                    if ($data['address'] == $address) {
+                        $fn = $data['fname'];
+                        $ln = $data['lname'];
+                        $ad = $data['address'];
+                        $ci = $data['city'];
+                        $zi = $data['zipcode'];
                     }
                 }
-            }
 
-            echo "
-            <table>
-                <tr>
-                    <th>Voornaam</th>
-                    <th>Achternaam</th>
-                    <th>Adres</th>
-                    <th>Stad</th>
-                    <th>Postcode</th>
-                </tr>
-                <tr>
-                    <td>" . $fn . "</td>
-                    <td>" . $ln . "</td>
-                    <td>" . $ad . "</td>
-                    <td>" . $ci . "</td>
-                    <td>" . $zi . "</td>
-                </tr>
-                <tr>
-                    <th>Sushi</th>
-                    <th>Prijs</th>
-                    <th>Hoeveelheid</th>
-                    <th>Totaal Prijs</th>
-                </tr>
-                <tr>
-                    <td>" . $sn . "</td>
-                    <td>" . $sp . "</td>
-                    <td>" . $sa . "</td>
-                    <td>" . $stp . "</td>
-                </tr>
-            </table>";
+                $sql = $pdo->prepare("SELECT * FROM sushi");
+                $sql->execute();
+                $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($result as $data) {
+                    if ($data['name'] == $sushi) {
+                        $sn = $data['name'];
+                        $sp = $data['price'];
+                        $id = $data['id'];
+                        $am = $data['amount'];
+                        $sa = $amount;
+                        if ($sa > 1) {
+                            $stp = $data['price'] * $sa;
+                        } else {
+                            $stp = $sp;
+                        }
+                    }
+                }
+                $temp = $am - $amount;
+                $sql = $pdo->prepare("UPDATE sushi
+                                        SET amount = $temp
+                                            WHERE id = $id;");
+                $sql->execute();
+
+
+                echo "
+                <table>
+                    <tr>
+                        <th>Voornaam</th>
+                        <th>Achternaam</th>
+                        <th>Adres</th>
+                        <th>Stad</th>
+                        <th>Postcode</th>
+                    </tr>
+                    <tr>
+                        <td>" . $fn . "</td>
+                        <td>" . $ln . "</td>
+                        <td>" . $ad . "</td>
+                        <td>" . $ci . "</td>
+                        <td>" . $zi . "</td>
+                    </tr>
+                    <tr>
+                        <th>Sushi</th>
+                        <th>Prijs</th>
+                        <th>Hoeveelheid</th>
+                        <th>Totaal Prijs</th>
+                    </tr>
+                    <tr>
+                        <td>" . $sn . "</td>
+                        <td>" . $sp . "</td>
+                        <td>" . $sa . "</td>
+                        <td>" . $stp . "</td>
+                    </tr>
+                </table>";
+            } else {
+                echo '<script>alert("There are not enough sushi in stock")</script>';
+            }
         } else {
             echo '<script>alert("Fill in all fields.");</script>';
         }
