@@ -1,6 +1,6 @@
 <body>
     <div class="jumbotron">
-        <a class="name" href="index.php"><h1>Justin Kousemaker</h1></a>
+        <a class="name" href="index.php"><h1><span class="theme">J</span>ustin <span class="theme">K</span>ousemaker</h1></a>
         <div class="j-buttons">
             <div>
                 <a class="j-button">Skills</a>

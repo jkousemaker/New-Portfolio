@@ -16,7 +16,7 @@
             <input placeholder="Last Name" type="text" name="lname">
             <input placeholder="Email" type="text" name="email">
             <textarea placeholder="Message" name="message"></textarea>
-            <input type="submit" name="submit">
+            <input value="Send" type="submit" name="submit">
         </form>
     </div>
     <?php
@@ -44,15 +44,15 @@
             <div class="intro-text">
                 <h1>I'm a</h1>
                 <ul class="dynamic-txts">
-                    <li><span>Developer</span></li>
-                    <li><span>Designer</span></li>
-                    <li><span>Editor</span></li>
-                    <li><span>Freelancer</span></li>
+                    <li><span><span class="theme">D</span>eveloper</span></li>
+                    <li><span><span class="theme">D</span>esigner</span></li>
+                    <li><span><span class="theme">V</span>ideo Editor</span></li>
+                    <li><span><span class="theme">F</span>reelancer</span></li>
                 </ul>
             </div>
         </section>
         <section class="skills">
-            <h1>Skills</h1>
+            <h1><span class="theme">S</span>kills</h1>
             <div class="s-card">
                 <p>Primary skills</p>
                 <div class="skillz">
@@ -77,7 +77,7 @@
             </div>
         </section>
         <section class="projects">
-            <h1>Projects</h1>
+            <h1><span class="theme">P</span>rojects</h1>
             <div class="p-cards">
                 <?php
                     global $pdo;
@@ -96,7 +96,7 @@
             </div>
         </section>
         <section class="about">
-            <h1>About me</h1>
+            <h1><span class="theme">A</span>bout me</h1>
             <p class="description">I'm an upcoming Software Developer who is currently perfecting his skills.</p>
             <h3>Why me?</h3>
             <div class="reasons">
@@ -147,7 +147,7 @@
             </div>
         </section>
         <section class="contact">
-            <h1>Contact me</h1>
+            <h1><span class="theme">C</span>ontact me</h1>
             <div class="card">
                 <ul class="socials">
                     <li class="social">
