@@ -8,12 +8,16 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0px;
-    margin-top: 61px;
+    scroll-behavior: smooth;
 }
 
 section {
     scroll-margin-top: 3rem;
-    margin-top: 40px;
+    margin-top: 50px;
+}
+
+.introduction {
+    margin-top: 85px;
 }
 
 h1 {
@@ -90,8 +94,8 @@ h1 {
 }
 
 .wrapper {
-    margin: 41px;
-    margin-bottom: 0;
+    margin-bottom: 0px!important;
+    margin: 40px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -99,6 +103,7 @@ h1 {
         margin: 20px;
         margin-bottom: 0;
     }
+
 }
 
 .introduction {
@@ -249,6 +254,22 @@ justify-content: space-evenly;
     color: white;
 }
 
+@media only screen and (max-width: 400px) {
+    .count {
+        width: 20px;
+        height: 20px;
+        margin: 9px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .reason > p {
+        width:  inherit;
+        font-size: 11px;
+    }
+}
+
+
 .contact {
     display: flex;
     flex-direction: column;
@@ -256,7 +277,7 @@ justify-content: space-evenly;
 }
 
 .contact > .card {
-    border: 1px solid black;
+    box-shadow: 1px 1px 16px #adadad;
     border-bottom: 0px;
     border-radius: 20px;
     border-bottom-left-radius: 0px;
@@ -266,24 +287,78 @@ justify-content: space-evenly;
     padding-left: 80px;
 }
 
-.socialss {
+li {
+    list-style-type: none;
+}
+
+.socials {
+    padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .social {
+    background-color: rgb(27,27,27);
     height: 100px;
+    width: 100px;
+    display: flex;
+    font-size: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
     margin: 20px;
+    cursor: pointer;
+    transition: all .2s ease-in-out, width .5s ease-in-out, height .5s ease-in-out, font-size .5s ease-in-out!important;
 }
 
-.social:hover {
-    transform: scale(1.2);
+.social:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    line-height: 60px;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0);
+    transition: all .4s ease-in-out 70ms, width .5s ease-in-out, height .5s ease-in-out;
+  }
+
+  .social:hover {
+    background-color: #fff; 
+  }
+  
+  .social:hover:after {
+    opacity: 1;
+    transform: scale(1.1);
+    transition-timing-function: cubic-bezier(0.74, 0.74, 0.24, 2.1);
+  }
+  
+  .social:hover a {
+    color: #000;
+  }
+
+.contact-icon {
+    color: white;
+    transition: none;
+}
+
+.fa {
+    transition: none;
 }
 
 @media only screen and (max-width: 690px) {
     .social {
         height: 70px;
+        width: 70px;
+        font-size: calc(60px * 0.7);
+    }
+    .social:after {
+        height: 70px;
+        width: 70px;
     }
     .contact > .card {
         padding-left: 20px;
@@ -294,7 +369,15 @@ justify-content: space-evenly;
 @media only screen and (max-width: 430px) {
     .social {
         margin: 5px;
+        margin-left: 15px;
+        margin-right: 15px;
         height: 50px;
+        width: 50px;
+        font-size: calc(60px * 0.5);
+    }
+    .social:after {
+        height: 50px;
+        width: 50px;
     }
     .contact > .card {
         padding-left: 20px;
@@ -305,7 +388,14 @@ justify-content: space-evenly;
     }
     .jumbotron > a > h1 {
         font-size: 18px!important;
-        margin-left: 5px;
+        margin-left: 10px;
+    }
+    .b-dropdown {
+        top: 48px!important;
+    }
+
+    .description {
+        text-align: center;
     }
 }
 
@@ -320,7 +410,7 @@ justify-content: space-evenly;
     width: 100%;
     height: 100px;
     border-radius: 20px;
-    box-shadow: 1px 1px 13px darkgrey;
+    border: 1px solid black;
     margin: 20px;
     flex-direction: column;
     align-items: center;
@@ -341,15 +431,41 @@ justify-content: space-evenly;
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
-    padding-right: 7px!important;
-    padding-left: 7px!important;
-    padding: 2px;
+    padding-right: 20px!important;
+    padding-left: 20px!important;
+    padding: 6px;
+    background: grey;
+    transition: all .2s ease-in-out, width .5s ease-in-out, height .5s ease-in-out, font-size .5s ease-in-out!important;
+}
+
+.gmail:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 35px;
+    border-radius: 6px;
+    opacity: 0;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0);
+    transition: all .4s ease-in-out 70ms, width .5s ease-in-out, height .5s ease-in-out;
+}
+
+.gmail:hover:after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.gmail > a {
+    font-size: 20px;
+    color: white;
+    text-align: center;
 }
 
 .gmail:hover {
-    box-shadow: 1px 1px 10px rgb(180, 180, 180);
-    transform:scale(1.1);
-    letter-spacing: 2px;
+    background: transparent;
+}
+
+.gmail:hover a {
+    color: black;
 }
 
 .burger {
@@ -360,7 +476,6 @@ justify-content: space-evenly;
     border: solid 2px black;
     cursor: pointer;
     padding: 10px;
-    margin: 36px;
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease-in-out;
@@ -371,13 +486,26 @@ justify-content: space-evenly;
 }
 
 @media only screen and (max-width: 392px) {
+    .options {
+        margin-left: 10px!important;
+        transform: scale(0.7);
+    }
     .burger {
-        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 11px;
+        padding: 7px;
     }
-    .reason {
-        justify-content: center;
-        text-align: center;
+    /*.dropdown {
+        transform: translateY(52px) translateX(-80px) scale(0.1)!important;
     }
+    .dropdown.open {
+        transform: translateY(7px) translateX(-35px) scale(0.7)!important;
+    }*/
+    .menu-btn {
+        transform: scaleY(0.7) scaleX(0.7);
+    }
+
 }
 
 .burger > img {
@@ -387,9 +515,7 @@ justify-content: space-evenly;
 
 .dropdown {
     background: black;
-    position: fixed;
-    left: 57px;
-    bottom: 39px;
+    position: relative;
     border-radius: 20px;
     color: white;
     display: flex;
@@ -400,11 +526,12 @@ justify-content: space-evenly;
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease-in-out;
-    transform: translateY(40px) translateX(-5px) scale(0.1);
+    transform: translateY(40px) translateX(-91px) scale(0.1);
+    z-index: 15000;
 }
 
 .dropdown.open {
-    transform: translateY(0px) translateX(0px) scale(1);
+    transform: translateY(-25px) translateX(-27px) scale(1);
 }
 
 .dropdown > p, .dropdown > .switch {
@@ -413,7 +540,9 @@ justify-content: space-evenly;
 
 .exit {
     width: 100%;
-    text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    height: 25px;
 }
 
 .exit-button {
@@ -436,12 +565,11 @@ justify-content: space-evenly;
 .options {
     display: flex;
     position: fixed;
-    height: 100%;
-    /* width: 100%; */
-    top: 0px;
+    bottom: 0px;
     align-items: flex-end;
-    /* visibility: hidden; */
     justify-content: flex-start;
+    z-index: 1000;
+    margin: 36px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -460,33 +588,35 @@ justify-content: space-evenly;
 .e-form {
     position: fixed;
     width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 10000;
     visibility: hidden;
     opacity: 0;
-    bottom: 170px;
-    transition: all 0.7s ease-in-out;
+    transition: all 0.8s cubic-bezier(0.54, 0.34, 0, 1.01);
     max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    cursor: no-drop;
 }
 
 .e-form.open {
-    bottom: -469px!important;
+    bottom: -892px!important;
+    transform: skew(0deg, 20deg) scaleY(4);;
 }
 
 .e-form > form {
     border-radius: 20px;
     background-color: white;
-    width: 100%;
-    height: 100%;
     margin: 61px;
-    padding: 49px;
+    padding: 27px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 5px 5px 15px 5px #0000004d;
     justify-content: center;
+    cursor: auto;
 }
 
 .e-form > form > p {
@@ -498,6 +628,7 @@ input, textarea, select {
     box-shadow: 1px 1px 10px rgb(204, 204, 204);
     border-radius: 10px;
     padding: 11px;
+    margin-top: 15px;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -511,6 +642,7 @@ textarea {
     min-height: 60px;
     max-width: 100vh;
     min-width: 150px;
+    resize: none;
 }
 
 .popup {
@@ -541,6 +673,7 @@ textarea {
 
 .copy-button > p {
     margin: 0;
+    font-weight: 600;
 }
 
 .icefield, .escape, .zuzu {
@@ -566,6 +699,7 @@ textarea {
 
 .icefield:hover, .escape:hover, .zuzu:hover {
     transform: scale(1.2);
+    z-index: 10;
 }
 
 .escape > img, .zuzu > img {
@@ -576,3 +710,42 @@ textarea {
     width: 100%;
 }
 
+.fa {
+    cursor: pointer;
+}
+
+.exit-b, .exit-button {
+    font-size: 18px!important;
+    transition: all .2s ease-in-out;
+}
+
+.exit-button > a {
+    color: black;
+}
+
+.b-exit > a, .exit-button > a {
+    transition: color .4s cubic-bezier(0.1, 0.98, 0.77, 0.96)!important;
+}
+
+.exit-b {
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-content: center;
+    align-items: center;
+    margin: 6px;
+}
+
+.exit-b:hover, .exit-button:hover {
+    background-color: red;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+}
+
+.b-exit-:hover a, .exit-button:hover a {
+     color: white;
+}

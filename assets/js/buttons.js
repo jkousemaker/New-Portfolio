@@ -8,6 +8,7 @@ const gmail = document.querySelector(".gmail");
 const form = document.querySelector(".e-form");
 
 //Socials
+const socials = document.querySelectorAll(".social");
 const instagram = document.querySelector(".instagram");
 const socialInfo = document.querySelectorAll(".whatsapp, .snapchat");
 const popUp = document.querySelector(".popup");
@@ -23,7 +24,8 @@ const exit = document.querySelectorAll(".exit-button");
 //Nightmode button
 const burgerButton = document.querySelector(".burger");
 const dropdownMenu = document.querySelector(".dropdown");
-const bugerExit = document.querySelector(".b-exit");
+const bugerExit = document.querySelector(".burger-but");
+console.log(bugerExit);
 
 let currentInfo = "";
 
@@ -81,20 +83,29 @@ if(instagram){
     }
 }
 
-if(socialInfo){
-    for (let i = 0; i < socialInfo.length; i++) {
-        socialInfo[i].addEventListener('click', (e) => {
+if(socials){
+    console.log(socials);
+    console.log(popUp);
+    for (let i = 0; i < socials.length; i++) {
+        socials[i].addEventListener('click', (e) => {
             switch(i) {
                 case 0:
                     currentInfo = "lilmogoal";
+                    visibility(popUp, true);
+                    info.textContent = currentInfo;
                     break;
                 case 1:
+                    socials[i].onclick = function () {
+                        window.open('https://www.instagram.com/icefieldoffical/', 'mywindow');
+                    }
+                    break;
+                case 2:
                     currentInfo = "+31 6 12059599";
+                    visibility(popUp, true);
+                    info.textContent = currentInfo;
                     break;
             }
             console.log(currentInfo);
-            visibility(popUp, true);
-            info.textContent = currentInfo;
         })
     }
 }
@@ -107,12 +118,14 @@ if(copyButton){
 }
 
 if(burgerButton && dropdownMenu){
+    console.log("heyyyy");
     burgerButton.addEventListener('click', (e) => {
         visibility(burgerButton, false);
         burgerButton.classList.add("open");
         visibility(dropdownMenu, true, "open");
     })
     bugerExit.addEventListener('click', (e) => {
+        console.log("kkkkk");
         visibility(burgerButton, true);
         burgerButton.classList.remove("open");
         visibility(dropdownMenu, false, "open");

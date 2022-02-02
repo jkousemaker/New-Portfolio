@@ -4,7 +4,11 @@
     </div>
     <div class="dropdown">
         <div class="exit">
-            <img class="b-exit exit-button" src="assets/images/button.png">
+            <div class="burger-but exit-b">
+                <a target="_blank" class="contact-icon">
+                    <i class="b-exit fa fa-times"></i>
+                </a>
+            </div>
         </div>
         <label class="switch">
         <input class="theme-switch" type="checkbox">

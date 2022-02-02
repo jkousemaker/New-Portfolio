@@ -6,12 +6,16 @@
 <div class="open e-form">
         <form method="post">
             <div class="exit">
-                <img class="exit-button" src="assets/images/button.png">
+                <div class="exit-button exit-b">
+                    <a target="_blank" class="contact-icon">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
             </div>
-            <input placeholder="First Name" type="text" name="fname"> <br>
-            <input placeholder="Last Name" type="text" name="lname"> <br>
-            <input placeholder="Email" type="text" name="email"> <br>
-            <textarea placeholder="Message" name="message"></textarea> <br>
+            <input placeholder="First Name" type="text" name="fname">
+            <input placeholder="Last Name" type="text" name="lname">
+            <input placeholder="Email" type="text" name="email">
+            <textarea placeholder="Message" name="message"></textarea>
             <input type="submit" name="submit">
         </form>
     </div>
@@ -93,7 +97,7 @@
         </section>
         <section class="about">
             <h1>About me</h1>
-            <p>I'm an upcoming Software Developer who is currently perfecting his skills.</p>
+            <p class="description">I'm an upcoming Software Developer who is currently perfecting his skills.</p>
             <h3>Why me?</h3>
             <div class="reasons">
                 <div>
@@ -145,29 +149,41 @@
         <section class="contact">
             <h1>Contact me</h1>
             <div class="card">
-                <div class="socialss">
-                    <div class="snapchat social">
-                        <img src="assets/images/snapchat.png">
-                    </div>
-                    <div class="instagram social">
-                        <img src="assets/images/instagram.png">
-                    </div>
-                    <div class="popup">
-                        <div class="exit">
-                            <img class="exit-button" src="assets/images/button.png">
+                <ul class="socials">
+                    <li class="social">
+                        <a href="#" target="_blank" class="contact-icon">
+                            <i class="fa fa-brands fa-snapchat-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="social">
+                        <a href="#" target="_blank" class="contact-icon">
+                            <i class="fa fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="social">
+                        <a href="#" target="_blank" class="contact-icon">
+                            <i class="fa fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="popup">
+                    <div class="exit">
+                        <div class="exit-button exit-b">
+                            <a target="_blank" class="contact-icon">
+                                <i class="fa fa-times"></i>
+                            </a>
                         </div>
-                        <p class="info">+31 6 12059599</p>
-                        <div class="copy-button">
-                            <p>Copy to clipboard</p>
-                        </div>
                     </div>
-                    <div class="whatsapp social">
-                        <img src="assets/images/whatsapp.png">
-                    </div>
+                    <p class="info"></p>
+                    <div class="copy-button">Copy to clipboard</div>
                 </div>
                 <div class="email-card">
                     <p>Send me an e-mail:</p>
-                    <div class="gmail">Click!</div>
+                    <div class="gmail">
+                        <a target="_blank" class="contact-icon">
+                            <i class="fa fa-brands fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
