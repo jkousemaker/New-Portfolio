@@ -87,17 +87,56 @@
 
                     foreach($result as $data) {
                         echo "
-                            <div class=" . $data['class'] . ">
+                            <div class='p-card'>
                                 <img src=" . $data['img'] . ">
+                                <div class='glass-popover'>
+                                    <h3 class='p-name'>".$data['name']."</h3>
+                                    <p class='p-description'>".$data['description']."</p>
+                                    <a target='_blank' href=".$data['link']."><div class='p-button'>></div></a>
+                                </div>
                             </div>
                         ";
                     }
+        
                 ?>
             </div>
         </section>
         <section class="about">
             <h1><span class="theme">A</span>bout me</h1>
-            <p class="description">I'm an upcoming Software Developer who is currently perfecting his skills.</p>
+            <div class="about-cards">
+                <div class="about-card">
+                    <h2>Personal life</h2>
+                    <p>I am a Software Development student on <span class="iact-text">ROC Mondriaan Tinwerf</span> and I'm in my <span class="iact-text">second year</span>. I love web design and finding new things to learn about. I live in The Netherlands</p>
+                    <div class="about-popup">
+                        <div class="exit">
+                            <div class="p-exit-button exit-b">
+                                <a target="_blank" class="interactive-icon">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 class="about-title">Roc Mondriaan</h4>
+                        <img class="about-image"src="assets/images/mondriaan.jpg">
+                        <p class="about-info">This is a picture of my school.</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                <h2>Personal life</h2>
+                    <p>I am a Software Development student on <span class="iact-text">ROC Mondriaan Tinwerf</span> and I'm in my <span class="iact-text">second year</span>. I love web design and finding new things to learn about. I live in The Netherlands</p>
+                    <div class="about-popup">
+                        <div class="exit">
+                            <div class="p-exit-button exit-b">
+                                <a target="_blank" class="interactive-icon">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 class="about-title">Roc Mondriaan</h4>
+                        <img class="about-image"src="assets/images/mondriaan.jpg">
+                        <p class="about-info">This is a picture of my school.</p>
+                    </div>
+                </div>
+            </div>
             <h3>Why me?</h3>
             <div class="reasons">
                 <div>

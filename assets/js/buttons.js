@@ -1,8 +1,3 @@
-//Projects
-const escapeRoom = document.querySelector(".escape");
-const iceField = document.querySelector(".icefield")
-const zuzu = document.querySelector(".zuzu");
-
 //Email Form
 const gmail = document.querySelector(".gmail");
 const form = document.querySelector(".e-form");
@@ -25,32 +20,12 @@ const exit = document.querySelectorAll(".exit-button");
 const burgerButton = document.querySelector(".burger");
 const dropdownMenu = document.querySelector(".dropdown");
 const bugerExit = document.querySelector(".burger-but");
-console.log(bugerExit);
 
 let currentInfo = "";
 
-
-//Porject Buttons
-if(escapeRoom){
-    escapeRoom.onclick = function() {
-        window.open('https://jkousemaker.github.io/Escape-Room/index.html','mywindow');
-    }
-}
-
-if(iceField){
-    iceField.onclick = function() {
-        window.open('https://icefield.company.site/','mywindow');
-    }
-}
-
-if(zuzu){
-    zuzu.onclick = function() {
-        window.open('zuzu.php','mywindow');
-    }
-}
-
 //Make pop ups hidden on exit press
 if(popUps) {
+    console.log(popUps);
     for (let i = 0; i < popUps.length; i++) {
         exit[i].addEventListener('click', (e) => {
             visibility(popUps[i], false, "open");
@@ -58,11 +33,7 @@ if(popUps) {
                 case 0:
                     form.classList.add("open");
                     break;
-                case 1:
-                    console.log("1");
-                    copyButton.textContent="Copy to clipboard";
-                    break;
-                case 2:
+                default:
                     break;
             }
         })
@@ -73,7 +44,6 @@ if(gmail){
     gmail.onclick = function() {
         visibility(form, true);
         form.classList.remove("open");
-        console.log("hey");
     }
 }
 
@@ -84,13 +54,12 @@ if(instagram){
 }
 
 if(socials){
-    console.log(socials);
-    console.log(popUp);
     for (let i = 0; i < socials.length; i++) {
         socials[i].addEventListener('click', (e) => {
             switch(i) {
                 case 0:
                     currentInfo = "lilmogoal";
+                    copyButton.textContent="Copy to clipboard";
                     visibility(popUp, true);
                     info.textContent = currentInfo;
                     break;
@@ -101,11 +70,11 @@ if(socials){
                     break;
                 case 2:
                     currentInfo = "+31 6 12059599";
+                    copyButton.textContent="Copy to clipboard";
                     visibility(popUp, true);
                     info.textContent = currentInfo;
                     break;
             }
-            console.log(currentInfo);
         })
     }
 }
@@ -118,14 +87,12 @@ if(copyButton){
 }
 
 if(burgerButton && dropdownMenu){
-    console.log("heyyyy");
     burgerButton.addEventListener('click', (e) => {
         visibility(burgerButton, false);
         burgerButton.classList.add("open");
         visibility(dropdownMenu, true, "open");
     })
     bugerExit.addEventListener('click', (e) => {
-        console.log("kkkkk");
         visibility(burgerButton, true);
         burgerButton.classList.remove("open");
         visibility(dropdownMenu, false, "open");
@@ -139,3 +106,4 @@ function visibility(element1, visibility, xClass) {
         element1.classList.remove("visible", xClass);
     }
 }
+

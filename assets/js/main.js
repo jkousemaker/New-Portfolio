@@ -1,8 +1,5 @@
 const sections = document.querySelectorAll(".skills, .projects, .about, .contact");
 const navButtons = document.querySelectorAll(".j-button");
-
-console.log(navButtons);
-
 for (let i = 0; i < navButtons.length; i++) {
     navButtons[i].onclick = function() {
         if(sections.length != 0){
@@ -33,3 +30,5 @@ for (let i = 0; i < navButtons.length; i++) {
 }
 
 console.log("js loaded");
+
+const pcards = document.querySelectorAll(".card");

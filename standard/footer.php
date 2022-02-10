@@ -11,5 +11,7 @@
     <script src="assets/js/nightmode.js"></script>
     <script src="assets/js/burger.js"></script>
     <script src="assets/js/buttons.js"></script>
+    <script src="assets/js/interactive.js"></script>
+    <script src="assets/js/webflow.js"></script>
 </body>
 </html>
