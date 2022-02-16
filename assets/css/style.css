@@ -97,7 +97,6 @@ h1 {
 .wrapper {
     margin-bottom: 0px!important;
     margin: 40px;
-    perspective: 10px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -495,13 +494,50 @@ li {
     border: solid 2px black;
     cursor: pointer;
     padding: 10px;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     transition: all .3s ease-in-out;
+    position: relative;
+    transition: all .5s ease-in-out, background-color .2s ease-in-out, height .3s ease-out, width .3s ease-out, border-radius .3s ease-out, visibility 0s 0.7s;
 }
 
 .burger.open {
-    transform: rotateY(90deg);
+    background-color: black;
+    transform-origin: left bottom;
+    height: 95px;
+    width: 95px;
+    border-radius: 12px;
+    border: 0px;
+    visibility: hidden;
+}
+
+.dropdown {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    border-radius: 12px;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: all .3s ease-out .4s,;
+}
+
+.dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    background-color: black;
+}
+
+.dropdown > p {
+    color: white!important;
 }
 
 @media only screen and (max-width: 392px) {
@@ -531,31 +567,6 @@ li {
 .burger > img {
     height: 100%;
     width: 100%;
-}
-
-.dropdown {
-    background: black;
-    position: relative;
-    border-radius: 20px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all .3s ease-in-out;
-    transform: translateY(40px) translateX(-91px) scale(0.1);
-    z-index: 15000;
-}
-
-.dropdown.open {
-    transform: translateY(-25px) translateX(-27px) scale(1);
-}
-
-.dropdown > p, .dropdown > .switch {
-    margin: 10px;
 }
 
 .exit {
@@ -842,7 +853,7 @@ textarea {
     cursor: pointer;
     align-content: center;
     align-items: center;
-    margin: 6px;
+    margin: 10px;
 }
 
 .exit-b:hover, .exit-but on:hover {

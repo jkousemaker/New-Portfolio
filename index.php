@@ -35,8 +35,8 @@
             }
         }
     ?>
-
-<div class="wrapper">
+<div class="scroll-wrapper">
+    <div class="wrapper">
         <section class="introduction">
             <div class="picture-card">
                 <img src="assets/images/selfie.jpg">
@@ -227,6 +227,7 @@
             </div>
         </section>
     </div>
+</div>
 <?php
     include_once 'standard/footer.php';
 ?>

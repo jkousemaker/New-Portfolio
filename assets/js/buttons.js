@@ -19,7 +19,7 @@ const exit = document.querySelectorAll(".exit-button");
 //Nightmode button
 const burgerButton = document.querySelector(".burger");
 const dropdownMenu = document.querySelector(".dropdown");
-const bugerExit = document.querySelector(".burger-but");
+const burgerExit = document.querySelector(".burger-but");
 
 let currentInfo = "";
 
@@ -86,17 +86,41 @@ if(copyButton){
     }
 }
 
+let bStatus = false;
+
 if(burgerButton && dropdownMenu){
-    burgerButton.addEventListener('click', (e) => {
-        visibility(burgerButton, false);
-        burgerButton.classList.add("open");
-        visibility(dropdownMenu, true, "open");
-    })
-    bugerExit.addEventListener('click', (e) => {
-        visibility(burgerButton, true);
-        burgerButton.classList.remove("open");
-        visibility(dropdownMenu, false, "open");
-    })
+        burgerButton.addEventListener('click', (e) => {
+            if (!bStatus) {
+            open(burgerButton, true);
+            setTimeout(open, 500, dropdownMenu, true);
+            visibility(dropdownMenu, true);
+            bStatus = true;
+            console.log("open");
+            }
+        })
+        burgerExit.addEventListener('click', (e) => {
+            if(bStatus) {
+            open(burgerButton, false);
+            setTimeout(open, 500, dropdownMenu, false);
+            visibility(dropdownMenu, false);
+            setTimeout(swapStatus, 500);
+            console.log("close");
+            }
+        })
+};;
+
+function open(element, status) {
+    if(status) {
+        console.log("kanker");
+        element.classList.add("open");
+    } else {
+        console.log("kanker2");
+        element.classList.remove("open");
+    }
+}
+
+function swapStatus() {
+    bStatus = false;
 }
 
 function visibility(element1, visibility, xClass) {
